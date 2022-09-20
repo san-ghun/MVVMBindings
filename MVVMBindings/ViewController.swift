@@ -7,6 +7,14 @@
 
 import UIKit
 
+// Obserable
+
+// Model
+
+// ViewModels
+
+// Controller
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -14,6 +22,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func fetch() {
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
+    }
 
 }
 
