@@ -12,7 +12,9 @@ import UIKit
 class Observable<T> {
     var value: T? {
         didSet {
-            listener?(value)
+            listeners.forEach {
+                $0(value)
+            }
         }
     }
     
@@ -20,11 +22,11 @@ class Observable<T> {
         self.value = value
     }
     
-    private var listener: ((T?) -> Void)?
+    private var listeners: [((T?) -> Void)] = []
     
     func bind(_ listener: @escaping (T?) -> Void) {
         listener(value)
-        self.listener = listener
+        self.listeners.append(listener)
     }
 }
 
