@@ -7,7 +7,7 @@
 
 import UIKit
 
-// Observable
+// MARK: - Observable
 
 class Observable<T> {
     var value: T? {
@@ -28,11 +28,23 @@ class Observable<T> {
     }
 }
 
-// Model
+// MARK: - Model
 
-// ViewModels
+struct User: Codable {
+    let name: String
+}
 
-// Controller
+// MARK: - ViewModels
+
+struct UserTableViewCellViewModel {
+    let name: String
+}
+
+struct UserListViewModel {
+    var users: Observable<[UserTableViewCellViewModel]> = Observable([])
+}
+
+// MARK: - Controller
 
 class ViewController: UIViewController {
 
